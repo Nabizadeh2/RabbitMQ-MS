@@ -1,0 +1,40 @@
+server:
+  port: 8084                   # Define the server port
+  servlet:
+    context-path: /order-app   # Define the context path for the application
+  forward-headers-strategy: framework  # Used to forward headers for proxies and load balancers
+
+spring:
+  # RabbitMQ configuration
+  rabbitmq:
+    host: localhost            # RabbitMQ host
+    port: 5672                 # RabbitMQ port
+    username: user             # RabbitMQ username
+    password: password         # RabbitMQ password
+
+  # DataSource configuration for PostgreSQL
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource   # Use HikariCP for database connection pool
+    url: "jdbc:postgresql://localhost:5432/postgres"  # PostgreSQL database URL
+    username: postgres                        # Database username
+    password: 12345                           # Database password
+    driver-class-name: org.postgresql.Driver  # JDBC driver class for PostgreSQL
+
+  # JPA configuration for Hibernate
+  jpa:
+    open-in-view: false                 # Disable open-in-view (for better performance in production)
+    database: postgresql                # Set the database type to PostgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  # Hibernate dialect for PostgreSQL
+    hibernate:
+      ddl-auto: update                  # Automatically update the database schema
+    show-sql: true                       # Show SQL queries in the console (useful for debugging)
+    properties:
+      hibernate:
+        format_sql: true                 # Format SQL queries for readability
+
+  # Springdoc OpenAPI and Swagger configuration
+  springdoc:
+    api-docs:
+      path: /v3/api-docs                # Define the path for OpenAPI JSON docs
+    swagger-ui:
+      path: /swagger-ui                  # Define the path for Swagger UI (default is /swagger-ui.html)

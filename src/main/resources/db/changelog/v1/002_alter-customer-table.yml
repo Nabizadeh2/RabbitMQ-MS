@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002_alter-customer-table
+      author: Jeyhuna Nabizada
+      changes:
+        - renameColumn:
+            tableName: customers
+            oldColumnName: full_name
+            newColumnName: first_name
+            columnDataType: VARCHAR(255)

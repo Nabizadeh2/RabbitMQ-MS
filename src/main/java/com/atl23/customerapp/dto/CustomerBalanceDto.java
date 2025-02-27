@@ -14,4 +14,5 @@ import java.math.BigDecimal;
 @Component
 public class CustomerBalanceDto {
     private BigDecimal balance;
+
 }

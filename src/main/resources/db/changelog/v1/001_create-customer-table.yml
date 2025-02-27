@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_create-customer-table
+      author: Jeyhuna Nabizada
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: full_name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: INT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: pin
+                  type: VARCHAR(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DECIMAL(19, 2)
+                  constraints:
+                    nullable: false

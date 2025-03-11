@@ -61,4 +61,10 @@ public class CustomerController {
 
     }
 
+
+    @GetMapping("/send-birthday-messages")
+    public String sendBirthdayMessages() {
+        customerService.sendBirthdayMessages();
+        return "Təbrik mesajları göndərildi!";
+    }
 }

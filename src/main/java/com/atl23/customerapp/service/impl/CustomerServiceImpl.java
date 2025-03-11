@@ -9,9 +9,13 @@ import com.atl23.customerapp.mapper.CustomerMapper;
 import com.atl23.customerapp.service.CustomerService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -64,5 +68,22 @@ public class CustomerServiceImpl implements CustomerService {
        return customerMapper.toDto1(customerRepository.findByBalance(dto.getBalance()));
 
 
+    }
+
+    @Override
+    @Scheduled(cron = "0 0 0 * * ?")
+   // @Scheduled(fixedRate = 3000)
+    public void sendBirthdayMessages() {
+        LocalDate today = LocalDate.now();
+        List<CustomerEntity> customers = customerRepository.findAll();
+
+        for (CustomerEntity customer : customers) {
+            if (customer.getBirthday() != null) {
+                if (customer.getBirthday().getMonth() == today.getMonth() && customer.getBirthday().getDayOfMonth() == today.getDayOfMonth()) {
+                    System.out.println("Təbriklər, " + customer.getFullName() + "! Bugün sizin ad gününüzdür.");
+
+                }
+            }
+        }
     }
 }

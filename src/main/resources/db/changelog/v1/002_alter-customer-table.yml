@@ -1,10 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: 002_alter-customer-table
+      id: 002_add-birthday-column
       author: Jeyhuna Nabizada
       changes:
-        - renameColumn:
+        - addColumn:
             tableName: customers
-            oldColumnName: full_name
-            newColumnName: first_name
-            columnDataType: VARCHAR(255)
+            columns:
+              - column:
+                  name: birthday
+                  type: DATE

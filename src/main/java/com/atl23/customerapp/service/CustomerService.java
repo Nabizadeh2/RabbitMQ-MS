@@ -17,5 +17,5 @@ public interface CustomerService {
 
     void decreaseBalance(Long customerId, BigDecimal price);
     CustomerBalanceDto getbalance(CustomerBalanceDto dto);
-
+    void sendBirthdayMessages();
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -21,5 +22,6 @@ public class CustomerDto {
     private Integer age;
     private String pin;
     private BigDecimal balance;
+    private LocalDate birthday;
 
 }

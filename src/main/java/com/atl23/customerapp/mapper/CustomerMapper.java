@@ -14,6 +14,6 @@ import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 public interface CustomerMapper {
     CustomerDto toDto(CustomerEntity customerEntity);
     CustomerEntity toEntity(CustomerDto customerDto);
-    CustomerEntity toEntity(CustomerBalanceDto customerBalanceDto);
-    CustomerBalanceDto toDto1(CustomerEntity customerEntity);
+//    CustomerEntity toEntity(CustomerBalanceDto customerBalanceDto);
+   CustomerBalanceDto toDto1(CustomerEntity customerEntity);
 }

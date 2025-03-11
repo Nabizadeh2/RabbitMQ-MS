@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Min;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -28,4 +30,6 @@ public class CustomerEntity {
     private String pin;
     @Min(0)
     private BigDecimal balance;
+    @Column(name = "birthday")
+    private LocalDate birthday;
 }
